@@ -7,6 +7,7 @@ app.set('views', 'app/views');
 
 app.locals.siteTitle = 'The Alchemy of Artistry';
 
+app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/art'));
 
