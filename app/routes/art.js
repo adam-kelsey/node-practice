@@ -6,7 +6,7 @@ router.get('/art', function(req, res) {
   var pageArt = [];
   var pageArtwork = data.artwork;
 
-  data.artwork.forEach(function(item) {
+  data.artworklist.forEach(function(item) {
     pageArt = pageArt.concat(item.artwork);
   });
 
