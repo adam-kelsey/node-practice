@@ -1,0 +1,12 @@
+.artdisplay {
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.artdisplay img {
+  display: block;
+  padding: 5px;
+  float: left;
+  width: 33.33%;
+  border-radius: 10px;
+}
