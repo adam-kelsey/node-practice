@@ -4,7 +4,6 @@ var router = express.Router();
 router.get('/art', function(req, res) {
   var data = req.app.get('appData');
   var pageArt = [];
-  var pageArtwork = data.artwork;
 
   data.artworklist.forEach(function(item) {
     pageArt = pageArt.concat(item.artwork);

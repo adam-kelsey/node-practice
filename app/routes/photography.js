@@ -3,22 +3,18 @@ var router = express.Router();
 
 router.get('/photography', function(req, res) {
   var data = req.app.get('appData');
-  var pageArt = [];
-  var pageArtwork = data.artwork;
+  var pagePhoto = [];
 
   data.artworklist.forEach(function(item) {
-    pageArt = pageArt.concat(item.artwork);
+    pagePhoto = pagePhoto.concat(item.photographs);
   });
 
   res.render('photography', {
     pageTitle: 'Photography',
-    artwork: pageArt,
+    photographs: pagePhoto,
     pageID: 'photography'
   });
 
 });
-
-// using the artwork as a temporary picture filler until photos have been added
-
 
 module.exports = router;

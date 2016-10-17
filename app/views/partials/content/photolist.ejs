@@ -2,10 +2,10 @@
   <h1 class="display-title">Photography</h1>
   <p class="display-body">Here is all the wonderful photographs that has been submitted!</p>
   <div class="artdisplay">
-    <% if (artwork.length > 0) { %>
-    <% for(i=0; i < artwork.length; i++) { %>
-      <img src="/images/artwork/<%= artwork[i]%>" alt="Artwork <%= i %>">
+    <% if (photographs.length > 0) { %>
+    <% for(i=0; i < photographs.length; i++) { %>
+      <img src="/images/artwork/<%= photographs[i]%>" alt="Photographs <%= i %>">
     <% } %>
     <% } %>
   </div>
-</article> <!-- temporary photo filler until photos are separated from artwork -->
+</article>
