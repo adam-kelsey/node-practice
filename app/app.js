@@ -33,11 +33,8 @@ app.use(require('./routes/art'));
 app.use(require('./routes/photography'));
 app.use(require('./routes/api'));
 app.use(require('./routes/submitions'));
+app.use(require('./routes/login'));
 
-app.get('/login',
-  function(req, res){
-    res.render('login');
-  });
   
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
