@@ -9,6 +9,16 @@ $(function() {
     }, updateSubmitions);
   });
 
+  $('.submition-messages').on('click', function(e) {
+    if (e.target.className == 'btn btn-danger') {
+      $.ajax({
+        url: 'api/' + e.target.id,
+        type: 'DELETE',
+        success: updateSubmitions
+      });
+    }
+  });
+
   function updateSubmitions(data) {
     var output = '';
     $.each(data,function(key, item) {
@@ -18,8 +28,6 @@ $(function() {
       output += '              <div class="submition-title">' + item.name + ' <small class="submition-name label label-info">' + item.title + '</small></div>';
       output += '            </div>';
       output += '          </div>';
-      output += '        </div>';
-      output += '      </div>';
     });
     $('.submition-messages').html(output);
   }
