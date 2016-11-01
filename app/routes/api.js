@@ -21,4 +21,15 @@ router.post('/api', function(req, res) {
   res.json(postingData);
 });
 
+router.delete('/api/:id', function(req, res) {
+  postingData.splice(req.params.id, 1);
+  fs.writeFile('app/data/postingdata.json', JSON.stringify(postingData), 'utf8', function(err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(err);
+  });
+  res.json(postingData);
+});
+
 module.exports = router;
