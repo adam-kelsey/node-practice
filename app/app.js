@@ -3,7 +3,24 @@ var app = express();
 var dataFile = require('./data/data.json');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
-var sql = require('mssql');
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'me',
+  password : 'secret',
+  database : 'my_db'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
+});
+
+connection.end();
 
 
 
@@ -22,41 +39,6 @@ passport.use(new LocalStrategy(
     });
   }
 ));
-
-
-
-
-
-sql.connect("mssql://username:password@localhost/database").then(function() {
-    // Query
-
-    new sql.Request().query('select * from mytable').then(function(recordset) {
-        console.dir(recordset);
-    }).catch(function(err) {
-        // ... query error checks
-    });
-
-    // Stored Procedure
-
-    new sql.Request()
-    .input('input_parameter', sql.Int, value)
-    .output('output_parameter', sql.VarChar(50))
-    .execute('procedure_name').then(function(recordsets) {
-        console.dir(recordsets);
-    }).catch(function(err) {
-        // ... execute error checks
-    });
-
-    // ES6 Tagged template literals (experimental)
-
-    sql.query`select * from mytable where id = ${value}`.then(function(recordset) {
-        console.dir(recordset);
-    }).catch(function(err) {
-        // ... query error checks
-    });
-}).catch(function(err) {
-    // ... connect error checks
-});
 
 
 
