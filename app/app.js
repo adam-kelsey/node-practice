@@ -32,7 +32,7 @@ app.set('appData', dataFile);
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 
-app.locals.siteTitle = 'The Alchemy of Artistry';
+app.locals.siteTitle = 'Alchemy and Artistry';
 
 app.use(express.static('app/public'));
 app.use(require('./routes/index'));
