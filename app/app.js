@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
 var dataFile = require('./data/data.json');
+var funct = require('./public/js/functions.js');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
-
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
