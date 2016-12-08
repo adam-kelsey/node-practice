@@ -1,4 +1,3 @@
-// functions.js/
 var bcrypt = require('bcryptjs'),
     Q = require('q'),
     config = require('./config.js'), //config file contains all tokens and other private info
